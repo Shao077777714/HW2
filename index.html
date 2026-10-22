@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#c9e0e6">
+  <title>天空島 · Sky Island</title>
+  <meta name="description" content="在雲海之上，探索五種方塊空島。挖掘、收集、建造，與小動物一起生活。">
+  <link rel="icon" href="assets/sky-island-assets/icons/grass.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene" aria-label="天空島三維遊戲世界"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="天空島首頁"><span class="brand-mark">◇</span><span>天空島<small>SKY ISLAND</small></span></a>
+      <div class="location"><span class="live-dot"></span><span id="location">雲海之上</span><span class="divider"></span><span id="coords">32 × 32 × 32</span></div>
+      <div class="top-actions"><button id="weather" title="R：切換天氣"><span id="weather-icon">☀</span><span id="weather-text">晴天</span><kbd>R</kbd></button><button id="overview" title="M：全島鳥瞰">全島鳥瞰 <kbd>M</kbd></button><button id="fullscreen" class="icon-button" aria-label="切換全螢幕" title="F：全螢幕">⛶</button></div>
+    </header>
+    <aside class="guide glass" id="guide">
+      <div class="eyebrow">YOUR LITTLE WORLD</div>
+      <h2>從一塊草地開始。</h2>
+      <p>挖下一塊，撿起一塊。<br>把想像，慢慢蓋成一座島。</p>
+      <div class="guide-rule"></div>
+      <div class="guide-step"><span>01</span><div>挖掘 <small>按住滑鼠左鍵</small></div><b id="step-mine">○</b></div>
+      <div class="guide-step"><span>02</span><div>收集 <small>走近掉落的方塊</small></div><b id="step-collect">○</b></div>
+      <div class="guide-step"><span>03</span><div>建造 <small>滑鼠右鍵放置</small></div><b id="step-place">○</b></div>
+      <div class="guide-foot"><span class="live-dot"></span><span id="guide-status">一趟小小的建造旅行</span></div>
+    </aside>
+    <section id="welcome" class="welcome">
+      <div class="eyebrow">A WORLD ABOVE THE CLOUDS</div>
+      <div class="edition">自由建造 · 五島探索</div>
+      <h1>把日子，<br>蓋在雲上。</h1>
+      <p>一座浮島，幾位小夥伴。<br>從這裡，開始你的天空生活。</p>
+      <button id="start" class="primary">開始探索 <span>↗</span></button>
+      <span class="start-note">WASD 移動 · 空白鍵跳躍 · 滑鼠觀看</span>
+    </section>
+    <section id="pause" class="modal hidden" aria-label="遊戲已暫停">
+      <div class="modal-card"><div class="eyebrow">TAKE A LITTLE BREATH</div><h2 id="pause-title">在雲上，歇一會。</h2><p id="pause-text">世界會等你回來。點擊繼續，再出發。</p><button id="resume" class="primary">繼續探索 <span>↗</span></button><button id="restart" class="text-button">重新開始世界</button></div>
+    </section>
+    <div id="crosshair" class="hidden" aria-hidden="true">+</div>
+    <div id="target" class="target hidden"></div>
+    <div id="dig-meter" class="dig-meter hidden"><span></span></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <nav class="island-legend glass" aria-label="空島種類">
+      <div class="eyebrow">THE ARCHIPELAGO <span>05</span></div>
+      <div class="legend-items"><span><i style="--dot:#7cae5f"></i>草地</span><span><i style="--dot:#60b9ce"></i>水</span><span><i style="--dot:#e8a362"></i>火</span><span><i style="--dot:#e4784f"></i>岩漿</span><span><i style="--dot:#ae6578"></i>地獄</span></div>
+    </nav>
+    <footer class="bottom-ui">
+      <div class="inventory-title"><span>你的口袋</span><small>1–8 選擇 · 滾輪切換</small><span id="selected-name">草地</span></div>
+      <div id="hotbar" class="hotbar" aria-label="快捷物品欄"></div>
+      <div class="controls"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移動</span><span><kbd>SPACE</kbd> 跳躍</span><span>左鍵 挖掘 · 右鍵 放置</span><span><kbd>ESC</kbd> 暫停</span></div>
+    </footer>
+    <div class="world-note"><span id="fps">— FPS</span><span>有限的世界，無限的想像。</span><span>LOCAL WORLD / 01</span></div>
+    <div id="loading"><span class="brand-mark">◇</span><p>正在把小島搬上天空…</p></div>
+    <noscript>請開啟 JavaScript 以遊玩天空島。</noscript>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
